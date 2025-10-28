@@ -1,0 +1,637 @@
+{
+  "azurerm_linux_virtual_machine": {
+    "azure_service_name": "Virtual Machines",
+    "cost_type": "fixed",
+    "sku_attribute": "size",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "Linux Virtual Machine"
+  },
+  "azurerm_windows_virtual_machine": {
+    "azure_service_name": "Virtual Machines",
+    "cost_type": "fixed",
+    "sku_attribute": "size",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "Windows Virtual Machine"
+  },
+  "azurerm_virtual_machine": {
+    "azure_service_name": "Virtual Machines",
+    "cost_type": "fixed",
+    "sku_attribute": "vm_size",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "Virtual Machine (legacy)"
+  },
+  "azurerm_virtual_machine_scale_set": {
+    "azure_service_name": "Virtual Machine Scale Sets",
+    "cost_type": "fixed",
+    "sku_attribute": "sku.name",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "VM Scale Set (legacy)"
+  },
+  "azurerm_linux_virtual_machine_scale_set": {
+    "azure_service_name": "Virtual Machine Scale Sets",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "Linux VM Scale Set"
+  },
+  "azurerm_windows_virtual_machine_scale_set": {
+    "azure_service_name": "Virtual Machine Scale Sets",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "Windows VM Scale Set"
+  },
+  "azurerm_kubernetes_cluster": {
+    "azure_service_name": "Azure Kubernetes Service",
+    "cost_type": "fixed",
+    "sku_attribute": "default_node_pool.vm_size",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "AKS Cluster",
+    "notes": "Cost = VM price \u00d7 node_count"
+  },
+  "azurerm_kubernetes_cluster_node_pool": {
+    "azure_service_name": "Azure Kubernetes Service",
+    "cost_type": "fixed",
+    "sku_attribute": "vm_size",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "AKS Node Pool"
+  },
+  "azurerm_container_group": {
+    "azure_service_name": "Container Instances",
+    "cost_type": "fixed",
+    "region_attribute": "location",
+    "description": "Container Instance"
+  },
+  "azurerm_batch_pool": {
+    "azure_service_name": "Batch",
+    "cost_type": "fixed",
+    "sku_attribute": "vm_size",
+    "sku_transform": "strip_standard_prefix",
+    "region_attribute": "location",
+    "description": "Azure Batch Pool"
+  },
+  "azurerm_spring_cloud_service": {
+    "azure_service_name": "Azure Spring Apps",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "Azure Spring Apps"
+  },
+  "azurerm_app_service_plan": {
+    "azure_service_name": "Azure App Service",
+    "cost_type": "fixed",
+    "sku_attribute": "sku.size",
+    "sku_transform": "app_service_sku",
+    "region_attribute": "location",
+    "description": "App Service Plan (legacy)"
+  },
+  "azurerm_service_plan": {
+    "azure_service_name": "Azure App Service",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "sku_transform": "app_service_sku",
+    "region_attribute": "location",
+    "description": "App Service Plan"
+  },
+  "azurerm_app_service": {
+    "azure_service_name": "Azure App Service",
+    "cost_type": "fixed",
+    "description": "App Service (uses plan pricing)"
+  },
+  "azurerm_linux_web_app": {
+    "azure_service_name": "Azure App Service",
+    "cost_type": "fixed",
+    "description": "Linux Web App (uses plan pricing)"
+  },
+  "azurerm_windows_web_app": {
+    "azure_service_name": "Azure App Service",
+    "cost_type": "fixed",
+    "description": "Windows Web App (uses plan pricing)"
+  },
+  "azurerm_mssql_database": {
+    "azure_service_name": "SQL Database",
+    "cost_type": "mixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "Azure SQL Database"
+  },
+  "azurerm_mssql_managed_instance": {
+    "azure_service_name": "SQL Managed Instance",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "SQL Managed Instance"
+  },
+  "azurerm_postgresql_server": {
+    "azure_service_name": "Azure Database for PostgreSQL",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "sku_transform": "postgresql_sku",
+    "region_attribute": "location",
+    "description": "PostgreSQL Single Server"
+  },
+  "azurerm_postgresql_flexible_server": {
+    "azure_service_name": "Azure Database for PostgreSQL",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "sku_transform": "postgresql_sku",
+    "region_attribute": "location",
+    "description": "PostgreSQL Flexible Server"
+  },
+  "azurerm_mysql_server": {
+    "azure_service_name": "Azure Database for MySQL",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "sku_transform": "mysql_sku",
+    "region_attribute": "location",
+    "description": "MySQL Single Server"
+  },
+  "azurerm_mysql_flexible_server": {
+    "azure_service_name": "Azure Database for MySQL",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "sku_transform": "mysql_sku",
+    "region_attribute": "location",
+    "description": "MySQL Flexible Server"
+  },
+  "azurerm_mariadb_server": {
+    "azure_service_name": "Azure Database for MariaDB",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "MariaDB Server"
+  },
+  "azurerm_cosmosdb_account": {
+    "azure_service_name": "Azure Cosmos DB",
+    "cost_type": "consumption",
+    "description": "Cosmos DB Account"
+  },
+  "azurerm_cosmosdb_sql_database": {
+    "azure_service_name": "Azure Cosmos DB",
+    "cost_type": "consumption",
+    "description": "Cosmos DB SQL Database"
+  },
+  "azurerm_cosmosdb_sql_container": {
+    "azure_service_name": "Azure Cosmos DB",
+    "cost_type": "consumption",
+    "description": "Cosmos DB SQL Container"
+  },
+  "azurerm_monitor_workspace": {
+    "azure_service_name": "Azure Monitor",
+    "cost_type": "consumption",
+    "description": "Azure Monitor Workspace"
+  },
+  "azurerm_redis_cache_access_policy_assignment": {
+    "azure_service_name": "Redis Cache",
+    "cost_type": "free",
+    "description": "Redis Cache Access Policy"
+  },
+  "azurerm_storage_share_file": {
+    "azure_service_name": "Storage",
+    "cost_type": "free",
+    "description": "Storage Share File"
+  },
+  "azurerm_redis_cache": {
+    "azure_service_name": "Redis Cache",
+    "cost_type": "fixed",
+    "sku_attribute": "family",
+    "sku_transform": "redis",
+    "region_attribute": "location",
+    "description": "Azure Redis Cache",
+    "multi_instance": true,
+    "instance_count_map": {
+      "P": 2,
+      "C": 2,
+      "B": 1
+    }
+  },
+  "azurerm_storage_account": {
+    "azure_service_name": "Storage",
+    "cost_type": "consumption",
+    "description": "Storage Account"
+  },
+  "azurerm_managed_disk": {
+    "azure_service_name": "Managed Disks",
+    "cost_type": "fixed",
+    "sku_attribute": "storage_account_type",
+    "sku_transform": "disk_sku",
+    "region_attribute": "location",
+    "description": "Managed Disk"
+  },
+  "azurerm_snapshot": {
+    "azure_service_name": "Managed Disks",
+    "cost_type": "fixed",
+    "sku_attribute": "storage_account_type",
+    "region_attribute": "location",
+    "description": "Disk Snapshot"
+  },
+  "azurerm_data_factory": {
+    "azure_service_name": "Data Factory",
+    "cost_type": "consumption",
+    "description": "Data Factory"
+  },
+  "azurerm_databricks_workspace": {
+    "azure_service_name": "Azure Databricks",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Databricks Workspace"
+  },
+  "azurerm_synapse_workspace": {
+    "azure_service_name": "Azure Synapse Analytics",
+    "cost_type": "consumption",
+    "description": "Synapse Workspace"
+  },
+  "azurerm_synapse_sql_pool": {
+    "azure_service_name": "Azure Synapse Analytics",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "Synapse SQL Pool"
+  },
+  "azurerm_hdinsight_hadoop_cluster": {
+    "azure_service_name": "HDInsight",
+    "cost_type": "fixed",
+    "region_attribute": "location",
+    "description": "HDInsight Hadoop Cluster"
+  },
+  "azurerm_hdinsight_spark_cluster": {
+    "azure_service_name": "HDInsight",
+    "cost_type": "fixed",
+    "region_attribute": "location",
+    "description": "HDInsight Spark Cluster"
+  },
+  "azurerm_public_ip": {
+    "azure_service_name": "Virtual Network",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Public IP Address"
+  },
+  "azurerm_virtual_network": {
+    "azure_service_name": "Virtual Network",
+    "cost_type": "free",
+    "description": "Virtual Network"
+  },
+  "azurerm_subnet": {
+    "azure_service_name": "Virtual Network",
+    "cost_type": "free",
+    "description": "Subnet"
+  },
+  "azurerm_network_security_group": {
+    "azure_service_name": "Virtual Network",
+    "cost_type": "free",
+    "description": "Network Security Group"
+  },
+  "azurerm_route_table": {
+    "azure_service_name": "Virtual Network",
+    "cost_type": "free",
+    "description": "Route Table"
+  },
+  "azurerm_network_interface": {
+    "azure_service_name": "Virtual Network",
+    "cost_type": "free",
+    "description": "Network Interface"
+  },
+  "azurerm_lb": {
+    "azure_service_name": "Load Balancer",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Load Balancer"
+  },
+  "azurerm_application_gateway": {
+    "azure_service_name": "Application Gateway",
+    "cost_type": "fixed",
+    "sku_attribute": "sku.name",
+    "region_attribute": "location",
+    "description": "Application Gateway"
+  },
+  "azurerm_vpn_gateway": {
+    "azure_service_name": "VPN Gateway",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "VPN Gateway"
+  },
+  "azurerm_virtual_network_gateway": {
+    "azure_service_name": "VPN Gateway",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Virtual Network Gateway"
+  },
+  "azurerm_express_route_circuit": {
+    "azure_service_name": "ExpressRoute",
+    "cost_type": "fixed",
+    "sku_attribute": "sku.tier",
+    "region_attribute": "location",
+    "description": "ExpressRoute Circuit"
+  },
+  "azurerm_firewall": {
+    "azure_service_name": "Azure Firewall",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "Azure Firewall"
+  },
+  "azurerm_nat_gateway": {
+    "azure_service_name": "NAT Gateway",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "NAT Gateway"
+  },
+  "azurerm_bastion_host": {
+    "azure_service_name": "Azure Bastion",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Azure Bastion"
+  },
+  "azurerm_private_endpoint": {
+    "azure_service_name": "Private Link",
+    "cost_type": "fixed",
+    "region_attribute": "location",
+    "description": "Private Endpoint"
+  },
+  "azurerm_private_link_service": {
+    "azure_service_name": "Private Link",
+    "cost_type": "fixed",
+    "region_attribute": "location",
+    "description": "Private Link Service"
+  },
+  "azurerm_ddos_protection_plan": {
+    "azure_service_name": "DDoS Protection",
+    "cost_type": "fixed",
+    "region_attribute": "location",
+    "description": "DDoS Protection Plan"
+  },
+  "azurerm_dns_zone": {
+    "azure_service_name": "Azure DNS",
+    "cost_type": "fixed",
+    "description": "DNS Zone"
+  },
+  "azurerm_private_dns_zone": {
+    "azure_service_name": "Azure DNS",
+    "cost_type": "fixed",
+    "description": "Private DNS Zone"
+  },
+  "azurerm_traffic_manager_profile": {
+    "azure_service_name": "Traffic Manager",
+    "cost_type": "fixed",
+    "description": "Traffic Manager Profile"
+  },
+  "azurerm_frontdoor": {
+    "azure_service_name": "Azure Front Door",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "description": "Azure Front Door"
+  },
+  "azurerm_cdn_profile": {
+    "azure_service_name": "Content Delivery Network",
+    "cost_type": "consumption",
+    "sku_attribute": "sku",
+    "description": "CDN Profile"
+  },
+  "azurerm_eventhub_namespace": {
+    "azure_service_name": "Event Hubs",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Event Hub Namespace"
+  },
+  "azurerm_stream_analytics_job": {
+    "azure_service_name": "Stream Analytics",
+    "cost_type": "fixed",
+    "region_attribute": "location",
+    "description": "Stream Analytics Job"
+  },
+  "azurerm_machine_learning_workspace": {
+    "azure_service_name": "Machine Learning",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "ML Workspace"
+  },
+  "azurerm_cognitive_account": {
+    "azure_service_name": "Cognitive Services",
+    "cost_type": "consumption",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "Cognitive Services"
+  },
+  "azurerm_search_service": {
+    "azure_service_name": "Azure Cognitive Search",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Cognitive Search"
+  },
+  "azurerm_servicebus_namespace": {
+    "azure_service_name": "Service Bus",
+    "cost_type": "fixed",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Service Bus Namespace"
+  },
+  "azurerm_api_management": {
+    "azure_service_name": "API Management",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "API Management"
+  },
+  "azurerm_logic_app_workflow": {
+    "azure_service_name": "Logic Apps",
+    "cost_type": "consumption",
+    "description": "Logic App"
+  },
+  "azurerm_signalr_service": {
+    "azure_service_name": "SignalR Service",
+    "cost_type": "fixed",
+    "sku_attribute": "sku.name",
+    "region_attribute": "location",
+    "description": "Azure SignalR Service"
+  },
+  "azurerm_notification_hub_namespace": {
+    "azure_service_name": "Notification Hubs",
+    "cost_type": "fixed",
+    "sku_attribute": "sku_name",
+    "region_attribute": "location",
+    "description": "Notification Hub Namespace"
+  },
+  "azurerm_application_insights": {
+    "azure_service_name": "Application Insights",
+    "cost_type": "consumption",
+    "description": "Application Insights"
+  },
+  "azurerm_log_analytics_workspace": {
+    "azure_service_name": "Azure Monitor",
+    "cost_type": "consumption",
+    "description": "Log Analytics Workspace"
+  },
+  "azurerm_monitor_action_group": {
+    "azure_service_name": "Azure Monitor",
+    "cost_type": "consumption",
+    "description": "Monitor Action Group"
+  },
+  "azurerm_key_vault": {
+    "azure_service_name": "Key Vault",
+    "cost_type": "consumption",
+    "sku_attribute": "sku_name",
+    "description": "Key Vault"
+  },
+  "azurerm_security_center_subscription_pricing": {
+    "azure_service_name": "Microsoft Defender for Cloud",
+    "cost_type": "fixed",
+    "description": "Defender for Cloud"
+  },
+  "azurerm_user_assigned_identity": {
+    "azure_service_name": "Managed Identity",
+    "cost_type": "free",
+    "description": "User Assigned Identity"
+  },
+  "azurerm_resource_group": {
+    "azure_service_name": "Resource Management",
+    "cost_type": "free",
+    "description": "Resource Group"
+  },
+  "azurerm_role_assignment": {
+    "azure_service_name": "RBAC",
+    "cost_type": "free",
+    "description": "Role Assignment"
+  },
+  "azurerm_management_lock": {
+    "azure_service_name": "Resource Management",
+    "cost_type": "free",
+    "description": "Management Lock"
+  },
+  "azurerm_static_web_app": {
+    "azure_service_name": "Static Web Apps",
+    "cost_type": "mixed",
+    "sku_attribute": "sku_tier",
+    "description": "Static Web App"
+  },
+  "azurerm_function_app": {
+    "azure_service_name": "Functions",
+    "cost_type": "consumption",
+    "description": "Function App"
+  },
+  "azurerm_linux_function_app": {
+    "azure_service_name": "Functions",
+    "cost_type": "consumption",
+    "description": "Linux Function App"
+  },
+  "azurerm_windows_function_app": {
+    "azure_service_name": "Functions",
+    "cost_type": "consumption",
+    "description": "Windows Function App"
+  },
+  "azurerm_iothub": {
+    "azure_service_name": "IoT Hub",
+    "cost_type": "fixed",
+    "sku_attribute": "sku.name",
+    "region_attribute": "location",
+    "description": "IoT Hub"
+  },
+  "azurerm_digital_twins_instance": {
+    "azure_service_name": "Azure Digital Twins",
+    "cost_type": "consumption",
+    "region_attribute": "location",
+    "description": "Digital Twins"
+  },
+  "azurerm_recovery_services_vault": {
+    "azure_service_name": "Backup",
+    "cost_type": "consumption",
+    "sku_attribute": "sku",
+    "region_attribute": "location",
+    "description": "Recovery Services Vault"
+  },
+  "azurerm_site_recovery_replication_policy": {
+    "azure_service_name": "Site Recovery",
+    "cost_type": "consumption",
+    "description": "Site Recovery Policy"
+  },
+  "azurerm_media_services_account": {
+    "azure_service_name": "Media Services",
+    "cost_type": "consumption",
+    "region_attribute": "location",
+    "description": "Media Services"
+  },
+  "azurerm_blockchain_member": {
+    "azure_service_name": "Azure Blockchain Service",
+    "cost_type": "fixed",
+    "sku_attribute": "sku.name",
+    "region_attribute": "location",
+    "description": "Blockchain Member"
+  },
+  "azurerm_storage_container": {
+    "azure_service_name": "Storage",
+    "cost_type": "free",
+    "description": "Blob Container"
+  },
+  "azurerm_storage_share": {
+    "azure_service_name": "Storage",
+    "cost_type": "free",
+    "description": "File Share"
+  },
+  "azurerm_storage_queue": {
+    "azure_service_name": "Storage",
+    "cost_type": "free",
+    "description": "Storage Queue"
+  },
+  "azurerm_storage_table": {
+    "azure_service_name": "Storage",
+    "cost_type": "free",
+    "description": "Storage Table"
+  },
+  "azurerm_key_vault_secret": {
+    "azure_service_name": "Key Vault",
+    "cost_type": "free",
+    "description": "Key Vault Secret"
+  },
+  "azurerm_key_vault_key": {
+    "azure_service_name": "Key Vault",
+    "cost_type": "free",
+    "description": "Key Vault Key"
+  },
+  "azurerm_key_vault_certificate": {
+    "azure_service_name": "Key Vault",
+    "cost_type": "free",
+    "description": "Key Vault Certificate"
+  },
+  "local_file": {
+    "azure_service_name": "Local Resource",
+    "cost_type": "free",
+    "description": "Local File"
+  },
+  "random_password": {
+    "azure_service_name": "Random Provider",
+    "cost_type": "free",
+    "description": "Random Password"
+  },
+  "random_string": {
+    "azure_service_name": "Random Provider",
+    "cost_type": "free",
+    "description": "Random String"
+  },
+  "null_resource": {
+    "azure_service_name": "Null Provider",
+    "cost_type": "free",
+    "description": "Null Resource"
+  },
+  "time_sleep": {
+    "azure_service_name": "Time Provider",
+    "cost_type": "free",
+    "description": "Time Sleep"
+  }
+}
