@@ -37,7 +37,7 @@ A Python tool that analyzes Terraform plan files to calculate the cost impact of
 - **Real-time Azure Pricing**: Queries the official [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices)
 - **Action-Based Costing**: Handles create (+cost), delete (-cost), update (delta), and replace actions
 
-See [SKU_TRANSFORMATIONS.md](SKU_TRANSFORMATIONS.md) for complete transformation reference.
+See [SKU_TRANSFORMATIONS.md](Docs/SKU_TRANSFORMATIONS.md) for complete transformation reference.
 
 ## Installation
 
@@ -71,6 +71,8 @@ terraform plan -out=tfplan
 # Convert to JSON
 terraform show -json tfplan > plan.json
 ```
+
+Move the plan.json to the Plan folder.
 
 ### 2. Run the Cost Analysis
 
