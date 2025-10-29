@@ -1,0 +1,46 @@
+trigger:
+  branches:
+    include:
+      - 'main'
+
+pool:
+  name: ps-prod-git-euw-azdo-mdp-ubuntu-default
+  demands:
+    - ImageOverride -equals ubuntu-22.04
+
+variables:
+  - group: be-ictinfra01-test
+  - group: cloud-space-variables
+  - group: jfrog-deploy
+
+resources:
+  repositories:
+    - repository: azure-devops-pipeline-templates
+      endpoint: dev.azure.com/baloise
+      type: git
+      name: CCoE_BBE/azure-devops-pipeline-templates
+      ref: refs/heads/main
+
+jobs:
+  - job: DockerPush
+    steps:
+      - template: docker/steps/v0/build.yaml@azure-devops-pipeline-templates
+        parameters:
+          IMAGE_NAME: 'dockertestappsander'
+          DOCKERFILE: 'dockerfile'
+          REGISTRY_HOSTNAME: $(jfrog-hostname)
+          REGISTRY_REPOSITORY: $(jfrog-docker-repository)
+          WORKING_DIRECTORY: '.'
+          VERSIONS:
+          - '0.0.1'
+          - 'latest'
+      - template: docker/steps/v0/push.yaml@azure-devops-pipeline-templates
+        parameters:
+          IMAGE_NAME: 'dockertestappsander'
+          REGISTRY_HOSTNAME: $(jfrog-hostname)
+          REGISTRY_REPOSITORY: $(jfrog-docker-repository)
+          REGISTRY_USERNAME: $(jfrog-username)
+          REGISTRY_PASSWORD: $(jfrog-password)
+          VERSIONS:
+          - '0.0.1'
+          - 'latest'
