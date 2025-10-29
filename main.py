@@ -101,7 +101,7 @@ def generate_output(cost_breakdown: List[Dict], skipped_resources: List[Dict], t
         skipped_resources: List of consumption-based resources that were skipped
         total_cost: Total monthly cost impact
     """
-    with open("result.txt", "w", encoding="utf-8") as f:
+    with open("plan/result.txt", "w", encoding="utf-8") as f:
         # Warning
         f.write("WARNING: This calculation EXCLUDES consumption-based resources.\nOnly resources with a monthly fixed cost are included in the total.\n")
         f.write("\n")
