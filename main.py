@@ -1,8 +1,3 @@
-"""
-Azure Terraform Cost Diff Calculator
-Main orchestration script that coordinates parsing, pricing, and cost calculation.
-"""
-
 import json
 import logging
 from datetime import datetime, timezone
