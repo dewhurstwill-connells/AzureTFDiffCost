@@ -7,10 +7,10 @@ import json
 import logging
 from datetime import datetime, timezone
 from typing import Dict, List, Tuple
-from tfplan_parser import TerraformPlanParser
-from azure_price_fetcher import AzurePriceFetcher
-from resource_mapper import ResourceMapper
-from cost_calculator import CostCalculator
+from Scripts.tfplan_parser import TerraformPlanParser
+from Scripts.azure_price_fetcher import AzurePriceFetcher
+from Scripts.resource_mapper import ResourceMapper
+from Scripts.cost_calculator import CostCalculator
 
 # Configure logging
 logging.basicConfig(

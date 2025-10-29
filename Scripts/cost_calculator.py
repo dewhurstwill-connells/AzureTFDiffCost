@@ -5,9 +5,9 @@ Calculates cost impact for Terraform resource changes.
 
 import logging
 from typing import Dict, Any, Optional
-from azure_price_fetcher import AzurePriceFetcher
-from resource_mapper import ResourceMapper
-from tfplan_parser import TerraformPlanParser
+from Scripts.azure_price_fetcher import AzurePriceFetcher
+from Scripts.resource_mapper import ResourceMapper
+from Scripts.tfplan_parser import TerraformPlanParser
 
 logger = logging.getLogger(__name__)
 
