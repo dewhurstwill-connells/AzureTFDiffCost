@@ -33,7 +33,7 @@ def main():
         
         # Parse Terraform plan
         logger.info("Parsing plan.json...")
-        resource_changes = parser.parse_plan("plan.json")
+        resource_changes = parser.parse_plan("plan/plan.json")
         logger.info(f"Found {len(resource_changes)} resource changes")
         
         # Filter for fixed-cost resources only
