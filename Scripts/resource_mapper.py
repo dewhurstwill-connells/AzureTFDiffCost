@@ -5,6 +5,7 @@ Maps Terraform azurerm resource types to Azure service names and pricing informa
 
 import json
 import logging
+import os
 from typing import Dict, Optional, Any
 
 logger = logging.getLogger(__name__)
@@ -13,14 +14,14 @@ logger = logging.getLogger(__name__)
 class ResourceMapper:
     """Maps Terraform resources to Azure pricing service names."""
     
-    def __init__(self, mapping_file: str = "resource_mapping.json"):
+    def __init__(self, mapping_file: Optional[str] = None):
         """
         Initialize the resource mapper.
         
         Args:
-            mapping_file: Path to the resource mapping JSON file
+            mapping_file: Optional mapping file path. When omitted, the mapper loads Scripts/resource_mapping.json relative to this module (instead of current working directory),
         """
-        self.mapping_file = mapping_file
+        self.mapping_file = mapping_file or os.path.join(os.path.dirname(__file__), "resource_mapping.json")
         self.mappings = self._load_mappings()
     
     def _load_mappings(self) -> Dict[str, Any]:
